@@ -1,0 +1,10 @@
+<h1>My Tasks</h1>
+
+<ul style = "list-style-type: none">
+  <% @tasks.each do |task| %>
+    <li><%= task.completed == true ? '<i class="fas fa-check"></i>'.html_safe : '<i class="fal fa-square"></i>'.html_safe %>><%= link_to task.title, task_path(task) %>
+      <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, task_path(task), method: :delete, data: { confirm: "do you want to delete?"} %>  </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Add a new task', new_path %>
